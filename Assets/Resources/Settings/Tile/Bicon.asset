@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ff6798b7fcd8114199e9a4a85adb39a, type: 3}
-  m_Name: Chicken Meat
+  m_Name: Bicon
   m_EditorClassIdentifier: 
-  _name: Chicken Meat
-  _sprite: {fileID: 21300000, guid: 53b4a89c03947ef41adf1f777c991d8b, type: 3}
+  _name: Bicon
+  _sprite: {fileID: 21300000, guid: 993abd98e2159f54aa6e045807f93972, type: 3}

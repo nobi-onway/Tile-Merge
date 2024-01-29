@@ -208,7 +208,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tileMerge: {fileID: 746870442601137336, guid: 6f5590b53f74d3745b80296d0de421f5, type: 3}
-  _tile: {fileID: 964327203306923241, guid: 4740947dde7d78e4e88ef69837a1fc54, type: 3}
 --- !u!1 &460400449
 GameObject:
   m_ObjectHideFlags: 0
