@@ -55,7 +55,7 @@ public class TileMergeBarBehaviour : MonoBehaviour
     public void AddToTileList(TileSetting settings)
     {
         int index = GetPositionIndex(settings.Id);
-        _tiles.Add(settings.Id);
+        _tiles.InsertRange(index, new List<int> { settings.Id });
 
         Transform tileTransform = transform.GetChild(_tiles.Count - 1);
         TileBehaviour tileBehaviour = tileTransform.GetComponentInChildren<TileBehaviour>();
