@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -33,22 +34,31 @@ public class TileMergeBarBehaviour : MonoBehaviour
         return index == 0 ? _tiles.Count : index;
     }
 
-    private void MergeTile(int id)
+    private IEnumerator MergeTile(int id)
     {
         int index = _tiles.IndexOf(id);
         int count = _tiles.FindAll(tileId => tileId == id).Count;
 
-        if (count < TILE_MERGE_LENGTH) return;
+        if (count < TILE_MERGE_LENGTH) yield break;
+
+        yield return new WaitForSeconds(0.2f);
 
         _tiles.RemoveAll(tileId => tileId == id);
 
         for(int i = 0; i < TILE_MERGE_LENGTH; i++)
         {
-            Transform tileTransform = transform.GetChild(index);
-            tileTransform.SetAsLastSibling();
-
+            Transform tileTransform = transform.GetChild(index + i);
             TileBehaviour tileBehaviour = tileTransform.GetComponentInChildren<TileBehaviour>();
             tileBehaviour.ClearData();
+        }
+
+        yield return new WaitForSeconds(0.3f);
+
+        for (int i = 0; i < TILE_MERGE_LENGTH; i++)
+        {
+            Transform tileTransform = transform.GetChild(index);
+
+            tileTransform.SetAsLastSibling();
         }
     }
 
@@ -63,6 +73,6 @@ public class TileMergeBarBehaviour : MonoBehaviour
         tileBehaviour.SetData(settings);
         tileTransform.SetSiblingIndex(index);
 
-        MergeTile(settings.Id);
+        StartCoroutine(MergeTile(settings.Id));
     }
 }

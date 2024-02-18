@@ -3,12 +3,10 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using DG.Tweening;
+using System.Threading.Tasks;
 
 public class TileBehaviour : MonoBehaviour, IPointerDownHandler
 {
-    private const float ANIMATION_END_VALUE = 1.0f;
-    private const float ANIMATION_DURATION = 0.2f;
-
     [SerializeField]
     private Image _iconSprite;
     [SerializeField]
@@ -32,11 +30,13 @@ public class TileBehaviour : MonoBehaviour, IPointerDownHandler
         EnableUIIf(true);
 
         _iconSprite.sprite = settings.Sprite;
-        transform.DOScale(ANIMATION_END_VALUE, ANIMATION_DURATION).SetEase(Ease.OutSine);
+        transform.DOScale(1.0f, 0.2f).SetEase(Ease.OutSine);
     }
 
-    public void ClearData()
+    public async void ClearData()
     {
+        await transform.DOScale(0.0f, 0.25f).SetEase(Ease.OutSine).AsyncWaitForCompletion();
+
         EnableUIIf(false);
 
         _iconSprite.sprite = null;
