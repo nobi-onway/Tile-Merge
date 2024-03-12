@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ff6798b7fcd8114199e9a4a85adb39a, type: 3}
-  m_Name: Chicken Meat
+  m_Name: Babecue
   m_EditorClassIdentifier: 
-  _name: Chicken Meat
-  _sprite: {fileID: 21300000, guid: 53b4a89c03947ef41adf1f777c991d8b, type: 3}
+  _name: Babecue
+  _sprite: {fileID: 21300000, guid: db5f28c8aea124e4bbc10b5fb4cd34dc, type: 3}
