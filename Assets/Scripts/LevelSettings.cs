@@ -35,6 +35,7 @@ public class LevelSettings : ScriptableObject
         }
     }
     public List<Tile> Tiles;
+    public int EnableTiles;
 
     public GameObject Board;
 }

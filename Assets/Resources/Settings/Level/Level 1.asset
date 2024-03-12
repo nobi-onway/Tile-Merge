@@ -14,8 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Level 1
   Tiles:
-  - Setting: {fileID: 11400000, guid: 56e6ae26e3701c04fad075282390258d, type: 2}
-    count: 12
-  - Setting: {fileID: 11400000, guid: 42308bf5928ac5c4bbd7e910632c1590, type: 2}
-    count: 12
+  - Setting: {fileID: 11400000, guid: 71383a9793a28194b8ec32ab65edea77, type: 2}
+    count: 6
+  - Setting: {fileID: 11400000, guid: c2c837e7edb20aa439f858be5bd01011, type: 2}
+    count: 6
+  - Setting: {fileID: 11400000, guid: 2ea07e1d3c5af294fb28fb8f06f0767f, type: 2}
+    count: 6
+  - Setting: {fileID: 11400000, guid: 096fbc46ed74e7c45ad89d30ec8c7d3b, type: 2}
+    count: 6
+  EnableTiles: 13
   Board: {fileID: 1838778874630672614, guid: 8fd71f442748c954d8c2e607be3e733b, type: 3}

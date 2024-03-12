@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ff6798b7fcd8114199e9a4a85adb39a, type: 3}
-  m_Name: Beef Meat
+  m_Name: Grilled Pork
   m_EditorClassIdentifier: 
-  _name: Beef Meat
-  _sprite: {fileID: 21300000, guid: 326b89e55a231664c96c5bcd0ea75850, type: 3}
+  _name: Grilled Pork
+  _sprite: {fileID: 21300000, guid: 91ae4131390ea9b4e9a7974d8f8e97c0, type: 3}
