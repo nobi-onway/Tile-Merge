@@ -10,10 +10,23 @@ public class TileBehaviour : MonoBehaviour, IPointerDownHandler
     [SerializeField]
     private Image _iconSprite;
 
+    private bool _enabled;
+    public bool Enabled 
+    {  
+        get { return _enabled; }
+        set 
+        { 
+            _enabled = value; 
+            
+            _iconSprite.color = value ? Color.white : new Color(1,1,1,0.5f) ; 
+        }
+    } 
+
     public event Action OnPointerDownHandler;
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        if (!_enabled) return;
         OnPointerDownHandler?.Invoke();
     }
 
@@ -25,6 +38,7 @@ public class TileBehaviour : MonoBehaviour, IPointerDownHandler
     public void SetData(TileSetting settings)
     {
         EnableUIIf(true);
+        Enabled = true;
 
         _iconSprite.sprite = settings.Sprite;
         transform.DOScale(1.0f, 0.2f).SetEase(Ease.OutSine);

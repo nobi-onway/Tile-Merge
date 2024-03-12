@@ -9,8 +9,10 @@ public class TileBoardBehaviour : MonoBehaviour
 
     [SerializeField]
     private LevelSettings levelSettings;
+    private const int ENABLE_TILE_COUNT = 6;
 
     private Queue<Tile> _tileQueue;
+    private Queue<TileBehaviour> _disableTileQueue;
     private List<Vector2> _tilePositions;
 
     public event Action<TileSetting> OnSelectedTile;
@@ -20,15 +22,23 @@ public class TileBoardBehaviour : MonoBehaviour
         GenerateBoard();
     }
 
-    private void SpawnTile(Vector2 anchoredPosition, TileSetting settings)
+    private void SpawnTile(Vector2 anchoredPosition, TileSetting settings, bool enabled)
     {
         GameObject tileClone = Instantiate(_tile, transform);
 
         TileBehaviour tileCloneBehavior = tileClone.GetComponent<TileBehaviour>();
 
         tileClone.GetComponent<RectTransform>().anchoredPosition = anchoredPosition;
+
         tileCloneBehavior.SetData(settings);
-        tileCloneBehavior.OnPointerDownHandler += () => { OnSelectedTile?.Invoke(settings); Destroy(tileClone); };
+
+        if (!enabled)
+        {
+            tileCloneBehavior.Enabled = false;
+            _disableTileQueue.Enqueue(tileCloneBehavior);
+        }
+
+        tileCloneBehavior.OnPointerDownHandler += () => { OnSelectedTile?.Invoke(settings); Destroy(tileClone); if (_disableTileQueue.Count > 0) _disableTileQueue.Dequeue().Enabled = true; };
     }
 
     private void GenerateBoard()
@@ -36,15 +46,18 @@ public class TileBoardBehaviour : MonoBehaviour
         GenerateTileQueue();
         GenerateTilePostions();
 
-        foreach (Vector2 position in _tilePositions)
+        int positionCount = _tilePositions.Count;
+
+        for (int i = 0; i < positionCount; i++)
         {
-            SpawnTile(position, _tileQueue.Dequeue().Setting);
+            SpawnTile(_tilePositions[i], _tileQueue.Dequeue().Setting, i < ENABLE_TILE_COUNT);
         }
     }
 
     private void GenerateTileQueue()
     {
         if (_tileQueue == null) _tileQueue = new Queue<Tile>();
+        if (_disableTileQueue == null) _disableTileQueue = new Queue<TileBehaviour>();
 
         foreach(Tile tile in levelSettings.Tiles)
         {
