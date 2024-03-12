@@ -20,7 +20,7 @@ MonoBehaviour:
     count: 3
   - Setting: {fileID: 11400000, guid: 6ee9d58a6521af14c8a3808138eadfda, type: 2}
     count: 3
-  - Setting: {fileID: 11400000, guid: 23af8596cb0be4c488a25e4ede6357fa, type: 2}
+  - Setting: {fileID: 11400000, guid: 720645334609fb5479087f7c34653f17, type: 2}
     count: 3
   - Setting: {fileID: 11400000, guid: c2c837e7edb20aa439f858be5bd01011, type: 2}
     count: 3

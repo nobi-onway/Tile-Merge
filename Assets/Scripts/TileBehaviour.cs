@@ -9,8 +9,6 @@ public class TileBehaviour : MonoBehaviour, IPointerDownHandler
 {
     [SerializeField]
     private Image _iconSprite;
-    [SerializeField]
-    private Image _backgroundSprite;
 
     public event Action OnPointerDownHandler;
 
@@ -22,7 +20,6 @@ public class TileBehaviour : MonoBehaviour, IPointerDownHandler
     private void EnableUIIf(bool enabled)
     {
         _iconSprite.enabled = enabled;
-        _backgroundSprite.enabled = enabled;
     }
 
     public void SetData(TileSetting settings)
