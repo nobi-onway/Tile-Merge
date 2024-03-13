@@ -9,7 +9,6 @@ public class TileBoardBehaviour : MonoBehaviour
 
     [SerializeField]
     private LevelSettings levelSettings;
-    private const int ENABLE_TILE_COUNT = 6;
 
     private Queue<Tile> _tileQueue;
     private Queue<TileBehaviour> _disableTileQueue;
@@ -38,7 +37,13 @@ public class TileBoardBehaviour : MonoBehaviour
             _disableTileQueue.Enqueue(tileCloneBehavior);
         }
 
-        tileCloneBehavior.OnPointerDownHandler += () => { OnSelectedTile?.Invoke(settings); Destroy(tileClone); if (_disableTileQueue.Count > 0) _disableTileQueue.Dequeue().Enabled = true; };
+        tileCloneBehavior.OnPointerDownHandler += () => { OnSelectedTile?.Invoke(settings); Destroy(tileClone); EnableTileInQueue(); };
+    }
+
+    private void EnableTileInQueue()
+    {
+       if (_disableTileQueue.Count <= 0) return;
+       _disableTileQueue.Dequeue().Enabled = true;
     }
 
     private void GenerateBoard()
@@ -50,7 +55,7 @@ public class TileBoardBehaviour : MonoBehaviour
 
         for (int i = 0; i < positionCount; i++)
         {
-            SpawnTile(_tilePositions[i], _tileQueue.Dequeue().Setting, i < ENABLE_TILE_COUNT);
+            SpawnTile(_tilePositions[i], _tileQueue.Dequeue().Setting, i < levelSettings.EnableTiles);
         }
     }
 

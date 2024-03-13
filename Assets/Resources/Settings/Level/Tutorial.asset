@@ -27,4 +27,5 @@ MonoBehaviour:
   - Setting: {fileID: 11400000, guid: 71383a9793a28194b8ec32ab65edea77, type: 2}
     count: 1
   EnableTiles: 6
+  Step: 1
   Board: {fileID: 1165273752530494167, guid: 4682c5e024ced18438f0924fef274a2f, type: 3}

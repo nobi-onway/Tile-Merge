@@ -294,7 +294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tile: {fileID: 964327203306923241, guid: 4740947dde7d78e4e88ef69837a1fc54, type: 3}
-  levelSettings: {fileID: 11400000, guid: 891f8b4afbf2ece41928babf2b1db8c5, type: 2}
+  levelSettings: {fileID: 11400000, guid: cf07e413bf6f0854e9c09ced24b25393, type: 2}
 --- !u!1 &559394300
 GameObject:
   m_ObjectHideFlags: 0
