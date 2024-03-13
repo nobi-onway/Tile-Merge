@@ -52,6 +52,8 @@ public class TileBoardBehaviour : MonoBehaviour
 
     public void GenerateBoard()
     {
+        DestroyChildren();
+
         GenerateTileQueue();
         GenerateTilePostions();
 
@@ -84,7 +86,6 @@ public class TileBoardBehaviour : MonoBehaviour
 
         SuffleTilePositions(_tilePositions);
     }
-
     private void SuffleTilePositions(List<Vector2> tilePositions)
     {
         int n = tilePositions.Count;
@@ -96,6 +97,14 @@ public class TileBoardBehaviour : MonoBehaviour
             Vector2 value = tilePositions[k];
             tilePositions[k] = tilePositions[n];
             tilePositions[n] = value;
+        }
+    }
+
+    private void DestroyChildren()
+    {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            Destroy(transform.GetChild(i).gameObject);
         }
     }
 }
