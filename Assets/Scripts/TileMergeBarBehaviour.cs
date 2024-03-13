@@ -12,13 +12,10 @@ public class TileMergeBarBehaviour : MonoBehaviour
 
     private List<int> _tiles;
 
-    private void Start()
+    public void GenerateTileMergeBar()
     {
-        GenerateTileMergeBar();
-    }
+        DestroyChildren();
 
-    private void GenerateTileMergeBar()
-    {
         _tiles = new List<int>();
 
         for (int i = 0; i < TILE_MERGE_BAR_LENGTH; i++)
@@ -64,6 +61,12 @@ public class TileMergeBarBehaviour : MonoBehaviour
 
     public void AddToTileList(TileSetting settings)
     {
+        if (_tiles.Count >= TILE_MERGE_BAR_LENGTH) 
+        { 
+            GamePlayController.Instance.CurrentState = GamePlayController.GamePlayState.lose;
+            return;
+        }
+
         int index = GetPositionIndex(settings.Id);
         _tiles.InsertRange(index, new List<int> { settings.Id });
 
@@ -74,5 +77,13 @@ public class TileMergeBarBehaviour : MonoBehaviour
         tileTransform.SetSiblingIndex(index);
 
         StartCoroutine(MergeTile(settings.Id));
+    }
+
+    private void DestroyChildren()
+    {
+        for(int i = 0; i < transform.childCount; i++)
+        {
+            Destroy(transform.GetChild(i).gameObject);
+        }
     }
 }

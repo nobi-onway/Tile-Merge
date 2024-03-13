@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ef8c758d61b7fc4c8fe658ac6f26cc3, type: 3}
+  m_Name: Level 2
+  m_EditorClassIdentifier: 
+  _name: Level 2
+  Tiles:
+  - Setting: {fileID: 11400000, guid: 0665d2dca3812364abda224747584d6c, type: 2}
+    count: 1
+  - Setting: {fileID: 11400000, guid: 56e6ae26e3701c04fad075282390258d, type: 2}
+    count: 1
+  - Setting: {fileID: 11400000, guid: 2ea07e1d3c5af294fb28fb8f06f0767f, type: 2}
+    count: 3
+  - Setting: {fileID: 11400000, guid: 56e6ae26e3701c04fad075282390258d, type: 2}
+    count: 1
+  - Setting: {fileID: 11400000, guid: 0665d2dca3812364abda224747584d6c, type: 2}
+    count: 2
+  - Setting: {fileID: 11400000, guid: 56e6ae26e3701c04fad075282390258d, type: 2}
+    count: 1
+  - Setting: {fileID: 11400000, guid: 42308bf5928ac5c4bbd7e910632c1590, type: 2}
+    count: 3
+  EnableTiles: 6
+  Board: {fileID: 1075516124843122121, guid: 8559c6c4a0818ff478503caba112ab75, type: 3}

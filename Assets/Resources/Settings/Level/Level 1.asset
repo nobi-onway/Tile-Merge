@@ -22,5 +22,5 @@ MonoBehaviour:
     count: 6
   - Setting: {fileID: 11400000, guid: 096fbc46ed74e7c45ad89d30ec8c7d3b, type: 2}
     count: 6
-  EnableTiles: 13
+  EnableTiles: 12
   Board: {fileID: 1838778874630672614, guid: 8fd71f442748c954d8c2e607be3e733b, type: 3}
