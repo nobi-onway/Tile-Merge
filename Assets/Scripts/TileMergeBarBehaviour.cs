@@ -12,12 +12,7 @@ public class TileMergeBarBehaviour : MonoBehaviour
 
     private List<int> _tiles;
 
-    private void Start()
-    {
-        GenerateTileMergeBar();
-    }
-
-    private void GenerateTileMergeBar()
+    public void GenerateTileMergeBar()
     {
         _tiles = new List<int>();
 

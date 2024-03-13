@@ -7,19 +7,14 @@ public class TileBoardBehaviour : MonoBehaviour
 {
     [SerializeField] private GameObject _tile;
 
-    [SerializeField]
-    private LevelSettings levelSettings;
+    private LevelSettings levelSettings => LevelController.Instance.CurrentLevelSetting;
 
     private Queue<Tile> _tileQueue;
+    private Queue<TileBehaviour> _tileBehaviourQueue;
     private Queue<TileBehaviour> _disableTileQueue;
     private List<Vector2> _tilePositions;
 
     public event Action<TileSetting> OnSelectedTile;
-
-    private void Start()
-    {
-        GenerateBoard();
-    }
 
     private void SpawnTile(Vector2 anchoredPosition, TileSetting settings, bool enabled)
     {
@@ -31,22 +26,31 @@ public class TileBoardBehaviour : MonoBehaviour
 
         tileCloneBehavior.SetData(settings);
 
-        if (!enabled)
-        {
-            tileCloneBehavior.Enabled = false;
-            _disableTileQueue.Enqueue(tileCloneBehavior);
-        }
+        tileCloneBehavior.Enabled = enabled;
+        _tileBehaviourQueue.Enqueue(tileCloneBehavior);
 
-        tileCloneBehavior.OnPointerDownHandler += () => { OnSelectedTile?.Invoke(settings); Destroy(tileClone); EnableTileInQueue(); };
+        if (!enabled) _disableTileQueue.Enqueue(tileCloneBehavior);
+
+        tileCloneBehavior.OnPointerDownHandler += () => { OnSelectedTile?.Invoke(settings); Destroy(tileClone); EnableTileInQueue(); TrackingWinGame(); };
     }
 
     private void EnableTileInQueue()
     {
-       if (_disableTileQueue.Count <= 0) return;
-       _disableTileQueue.Dequeue().Enabled = true;
+        if (_disableTileQueue.Count <= 0) return;
+
+        _disableTileQueue.Dequeue().Enabled = true;
     }
 
-    private void GenerateBoard()
+    private void TrackingWinGame()
+    {
+        _tileBehaviourQueue.Dequeue();
+
+        if (_tileBehaviourQueue.Count > 0) return;
+
+        GamePlayController.Instance.CurrentState = GamePlayController.GamePlayState.win;
+    }
+
+    public void GenerateBoard()
     {
         GenerateTileQueue();
         GenerateTilePostions();
@@ -61,10 +65,11 @@ public class TileBoardBehaviour : MonoBehaviour
 
     private void GenerateTileQueue()
     {
-        if (_tileQueue == null) _tileQueue = new Queue<Tile>();
-        if (_disableTileQueue == null) _disableTileQueue = new Queue<TileBehaviour>();
+        _tileQueue = new Queue<Tile>();
+        _tileBehaviourQueue = new Queue<TileBehaviour>();
+        _disableTileQueue = new Queue<TileBehaviour>();
 
-        foreach(Tile tile in levelSettings.Tiles)
+        foreach (Tile tile in levelSettings.Tiles)
         {
             for(int i = 0; i < tile.count; i++)
             {
