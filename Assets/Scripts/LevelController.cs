@@ -20,7 +20,7 @@ public class LevelController : MonoBehaviour
 
     public void LevelUp()
     {
-        int nextLevel = _currentLevel <= _allLevelSettings.Count - 1 ? 0 : _currentLevel + 1;
+        int nextLevel = _currentLevel >= _allLevelSettings.Count - 1 ? 0 : _currentLevel + 1;
 
         PlayerPrefs.SetInt(CURRENT_LEVEL_KEY, nextLevel);
     }

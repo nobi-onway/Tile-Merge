@@ -67,7 +67,6 @@ public class GamePlayController : MonoBehaviour
     private void OnWin()
     {
         LevelController.Instance.LevelUp();
-        Debug.Log("On Win");
     }
 
     private void StartGame()

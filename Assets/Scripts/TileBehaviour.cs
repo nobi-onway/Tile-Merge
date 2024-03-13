@@ -18,7 +18,7 @@ public class TileBehaviour : MonoBehaviour, IPointerDownHandler
         { 
             _enabled = value; 
             
-            _iconSprite.color = value ? Color.white : new Color(1,1,1,0.5f) ; 
+            _iconSprite.color = value ? Color.white : new Color(1,1,1,0.4f) ; 
         }
     } 
 
