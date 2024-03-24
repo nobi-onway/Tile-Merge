@@ -629,7 +629,6 @@ GameObject:
   - component: {fileID: 599248462}
   - component: {fileID: 599248464}
   - component: {fileID: 599248463}
-  - component: {fileID: 599248465}
   m_Layer: 5
   m_Name: Win Panel
   m_TagString: Untagged
@@ -696,18 +695,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 599248461}
   m_CullTransparentMesh: 1
---- !u!114 &599248465
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 599248461}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77e9acb809e034247abf2d5ecf378dbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &786028539
 GameObject:
   m_ObjectHideFlags: 0
@@ -787,7 +774,6 @@ GameObject:
   - component: {fileID: 928645375}
   - component: {fileID: 928645377}
   - component: {fileID: 928645376}
-  - component: {fileID: 928645378}
   m_Layer: 5
   m_Name: Lose Panel
   m_TagString: Untagged
@@ -854,18 +840,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 928645374}
   m_CullTransparentMesh: 1
---- !u!114 &928645378
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 928645374}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff51a490590526e4097facc15e34060b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &951179290
 GameObject:
   m_ObjectHideFlags: 0
